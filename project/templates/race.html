@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Race
+{% endblock %}
+
+{%block style%}
+{%load static%}
+  <style type="text/css"  src="{% static 'css/race.css' %}" /></style>
+  <style>
+    .input_card input.form-control.invalid {
+    border: 1px solid red !important;
+    color: red !important;
+    outline: none !important;
+}
+.user_car{
+width: 40px;
+height:100%;
+position:absolute;
+top:-26px;
+left:30px;
+animation:move 5s linear;
+}
+@keyframes move{
+from{
+    left:0;
+}
+to{
+    left:500px;
+}
+}
+  </style>
+
+{%endblock%}
+{% block content %}
+<div class="container py-lg-5 my-sm-5">
+    <div class="row">
+        <div class="col-lg-5 col-md-6 col-sm-12 rounded bg-info p-3">
+            <p>Change racing type</p>
+            <div class="d-flex justify-content-between my-3">
+                <p>Practice with yourself and compete with real world!</p>
+                <a href="#" class="btn btn-primary">Race to yourself</a> 
+            </div>
+             <div class="d-flex justify-content-between my-3">
+                <p>Race with people from around the world</p>
+                <a href="#" class="btn btn-primary">Race to Others</a>
+            </div>
+        </div>
+    </div>
+  
+    <div class="row bg-secondary p-3 my-3 rounded">
+        <div class="col-lg-4 col-md-4 col-sm-12">
+             <p>Change race difficulty</p>
+            <div class="">
+                <p>Only contains simple 20 words and have to complete in 4 minutes.</p>
+                <a href="#" class="btn btn-info">Simple</a> 
+            </div>
+             <div class="">
+                <p>Contains 35 to 40 words with punctuations and have to complete in 2 minutes.</p>
+                <a href="#" class="btn btn-info">Medium</a>
+            </div>
+             <div class="">
+                <p>Contains 80 to 100 words with letters, special characters, numbers and punctuations and have to complete in 1 minute.</p>
+                <a href="#" class="btn btn-info">Complex</a>
+            </div>
+         </div>
+       
+          <div class="col-lg-8 col-md-6 col-sm-12 bg-warning rounded p-3 my-sm-3">
+            <h3 id="timer_holder" class="text-dark">The race will begin in:<span class="text-dark"></span></h3>
+            <h3 id="remaining_time_h3" class="hide text-dark">Remaining Time:<span id="remaining_time" class="text-dark"></apnn></h3>
+            <h3 id="score_holder_h3" class="text-dark">Words per minute:<span id="score_holder" class="text-dark">0</span></h3>
+
+            <div class="race_holder rounded py-5">
+              <div class="user_path">
+                {%load static%}
+                <div class="user_car">
+                  <img src="{% static 'images/car1.png' %}" class="" alt="car image">
+                </div>
+                <div class="user_road">
+                  <img src="{% static 'images/line.png' %}" class="" alt="line image">
+                </div>
+              </div>
+            </div>
+            <div>
+                <div id="text_holder" class="border p-3 my-2 rounded bg-white text-black" data-toggle="tooltip" data-placement="top" title="Type this quote">
+                    <span id="word_to_type_holder"></span>
+                    <span id="text_to_type"class="text-dark">{{quote.text}}</span>
+                </div>
+         </div>
+        
+            <div class="input_card">
+                <input type="text" id="input_text" class="form-control  my-3" placeholder="Type here..." disabled>
+            </div>
+            <button class="btn btn-info hide mt-3 d-none" id="try_again_btn">Try again</button>
+         </div>
+</div>
+
+<!--modal-->
+
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorModalLabel">Error message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>You have typed wrong characters. Please try again.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+{%load static%}
+<script src="{%static 'js/race.js' %}"></script>
+<script>
+
+  
+</script>
+{% endblock %}

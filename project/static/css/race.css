@@ -1,0 +1,4 @@
+.input_card input.form-control.invalid {
+    border: 1px solid red !important;
+    color: red !important;
+}

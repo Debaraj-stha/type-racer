@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<div class="index_card">
+    <div class="row index_row">
+        <div class="col-md-6 col-sm-12">
+            {% load static %}
+            <img src="{% static 'images/Webp.webp' %}" class="img-fluid rounded w-100 h-100" alt="typing game">
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <h3 class="text-dark">Is your typing speed slow?</h3>
+            <p class="text-primary">No worries!</p>
+            <p>Start practicing today to improve your typing speed with <span class="font-20">Type Racer</span>.</p>
+            <p>Compete with yourself and people around the world.</p>
+            <p><em>"Race against the clock, race against the world."</em></p>
+            <button class="btn btn-primary mt-3">Race Now</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<!-- Add any additional scripts here if needed -->
+{% endblock %}
